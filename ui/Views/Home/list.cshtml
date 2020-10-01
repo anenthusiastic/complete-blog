@@ -1,0 +1,48 @@
+@model List<ui.ViewModels.PostViewModel>
+
+  <div class="row">
+    <div >
+          @if(Model.Count == 0){
+              <div class="alert alert-danger" role="alert">
+                There is no post about "@ViewBag.query" !
+              </div>
+          }
+          else{
+            @await Html.PartialAsync("_filter")
+            
+            foreach (var pvm in Model)
+            {
+            <div class="post-preview">
+              <a class="btn btn-outline-primary float-right " style="display:@ViewBag.admin;" href="/Home/deletepost/@pvm.post.id">Delete &rarr;</a>
+              <a class="btn btn-outline-primary float-right mr-2" style="display:@ViewBag.admin;" href="/Home/updatepost/@pvm.post.id">Update &rarr;</a>
+              <a href="/Home/post/@pvm.post.id">
+                <h2 class="post-title">
+                  @pvm.postHeader.heading
+                </h2>
+                <h3 class="post-subtitle">
+                  @pvm.postHeader.subHeading
+                </h3>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#">Fatih Gurkan</a>
+                on @pvm.post.date.ToShortDateString()
+                <div class="float-right">
+                      @pvm.post.viewCount  Views 
+                </div>
+              </p>
+              
+              
+                @foreach (var item in pvm.categoryNames)
+                {
+                  <a href="/Home/post?category=@item" > <strong>#@(item )</strong></a>
+                   
+                }              
+                
+              </div>
+              <hr>
+            }
+          }
+          
+  
+    </div>
+  </div>

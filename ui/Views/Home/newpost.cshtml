@@ -1,0 +1,55 @@
+@model ui.ViewModels.PostViewModel
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="POST" name="newPost" id="postForm" >
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label for="heading">Heading</label>
+              <input name="postHeader" class="form-control" placeholder="heading" id="heading"  required data-validation-required-message="Please enter heading.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label for="subHeading">Subheading</label>
+              <input name="postHeader" class="form-control" placeholder="Sub Heading" id="subHeading" required data-validation-required-message="Please enter subheading.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="imageName">Image name</label>
+              <input name="postHeader" class="form-control" placeholder="image Name" id="imageName" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label for="content">Content</label>
+              <textarea name="post" rows="5" class="form-control" placeholder="Content" id="content" required data-validation-required-message="Please enter a message."></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class = "radio-group mt-4">
+              @foreach(var item in ViewBag.categories){
+              <input type="radio" id="@item.name" name="categoryNames" value="@item.name">
+                <label for="@item.name">@item.name</label><br>
+            }
+            
+            </div>  
+          
+            
+          <br>
+          <div id="success">
+              <button type="submit" class="btn btn-primary" id="newPostButton">Send</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+

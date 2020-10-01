@@ -1,0 +1,80 @@
+@model List<ui.ViewModels.PostViewModel>
+
+  <!-- Main Content -->
+  <div class="row">
+    <div class="col-md-9">
+          @await Html.PartialAsync("_filter")
+          @foreach (var pvm in Model)
+          {
+            <div class="post-preview mr-5 mt-3">
+                <a class="btn btn-outline-primary float-right " style="display:@ViewBag.admin;" href="/Home/deletepost/@pvm.post.id">Delete &rarr;</a>
+                <a class="btn btn-outline-primary float-right mr-2" style="display:@ViewBag.admin;" href="/Home/updatepost/@pvm.post.id">Update &rarr;</a>
+                <a href="/Home/post/@pvm.post.id">
+                  <h2 class="post-title">
+                    @pvm.postHeader.heading
+                  </h2>
+                  <h4 class="post-subtitle">
+                    @pvm.postHeader.subHeading
+                  </h4>
+                </a>
+                <p class="post-meta">Posted by
+                  <a href="#">Fatih Gurkan</a>
+                  on @pvm.post.date.ToShortDateString()
+                  <div class="float-right">
+                      @pvm.post.viewCount  Views 
+                  </div>
+                </p>
+                
+                @foreach (var item in pvm.categoryNames)
+                {
+                 <a href="/Home/post?category=@item" > <strong>#@(item )</strong></a>
+                }
+              
+            </div>
+            <hr>
+          }
+          
+        <div class="clearfix">
+          <a class="btn btn-primary float-right @ViewBag.olderPostsButton" href="/Home/Index/@ViewBag.page">Older Posts &rarr;</a>
+        </div>
+      </div>
+
+    <div class="col-md-3">
+      <div class="list-group">
+        <h3 class="mb-3">Most Popular Posts Of All Times</h3>
+        @for (int i=0;i<ViewBag.alltimesPosts.popularposts.Count;i++)
+        {
+          <a href="/Home/post/@ViewBag.alltimesPosts.postids[i]" class="list-group-item list-group-item-action mb-1">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">@ViewBag.alltimesPosts.popularposts[i].heading</h5>
+              <small class="text-muted">
+                @ViewBag.alltimesPosts.daydifference[i]
+              </small>
+            </div>
+            <p class="mb-1">@ViewBag.alltimesPosts.popularposts[i].subHeading</p>
+            <small class="text-muted">Posted by Fatih Gurkan</small>
+          </a>
+        }
+        
+      </div>
+
+      <hr>
+
+      <div class="list-group">
+        <h3 class="mb-3 mt-5">This Month's Most Popular Posts</h3>
+        @for(int i=0; i<ViewBag.monthsPosts.popularposts.Count; i++){
+          <a href="@ViewBag.monthsPosts.postids[i]" class="list-group-item list-group-item-action mb-1">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@ViewBag.monthsPosts.popularposts[i].heading</h5>
+            <small class="text-muted">@ViewBag.monthsPosts.daydifference[i]</small>
+          </div>
+          <p class="mb-1">@ViewBag.monthsPosts.popularposts[i].subHeading</p>
+          <small class="text-muted">Posted by Fatih Gurkan</small>
+        </a>
+        }
+        
+      </div>
+    </div>
+  </div>
+
+  <hr>
