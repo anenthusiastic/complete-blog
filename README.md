@@ -1,3 +1,3 @@
 # complete-blog
 
-A blog website developed with Asp.Net Core 
+A blog website developed with Asp.Net Core MVC
