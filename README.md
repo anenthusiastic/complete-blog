@@ -1,2 +1,3 @@
 # complete-blog
-Not Defteri üzerinden ilk deðiþiklik!
+
+A blog website developed with Asp.Net Core 
