@@ -26,3 +26,21 @@ Home page:
 # You can leave and view comments : 
 
 ![comment](https://user-images.githubusercontent.com/67736718/125977756-c260a03f-5287-4675-85b3-878064757bc4.JPG)
+
+
+# You can search a string in posts : 
+
+![crisis](https://user-images.githubusercontent.com/67736718/125979614-0645c7d0-9947-4bde-bfd9-88cf32b37467.png)
+
+Result : 
+![search](https://user-images.githubusercontent.com/67736718/125979820-df87e4e5-9c58-43e3-9222-3c0e5e384585.JPG)
+
+![res](https://user-images.githubusercontent.com/67736718/125979622-1e45674d-50cc-4f7b-aaa4-cb5e1ce5f4b1.JPG)
+
+# You can filter the posts by date interval :
+
+![filter](https://user-images.githubusercontent.com/67736718/125979757-61effe64-218c-41de-a02c-866d93a3fd28.JPG)
+
+Result : 
+![result](https://user-images.githubusercontent.com/67736718/125979935-c61d44e5-3eaa-440e-b03d-f22f954cfafe.JPG)
+
